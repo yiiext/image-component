@@ -9,7 +9,7 @@
 /**
  * Image processing with Imagine.
  *
- * @version 0.01
+ * @version 0.02
  * @package yiiext.image-component
  */
 class ImageComponent extends CApplicationComponent
@@ -22,38 +22,13 @@ class ImageComponent extends CApplicationComponent
 
 	public function init()
 	{
-		Yii::registerAutoloader(array(__CLASS__,'autoload'),true);
+		Yii::setPathOfAlias('Imagine',__DIR__.'/Imagine');
 		$className="Imagine\\{$this->driver}\\Imagine";
 		$this->_imagine=new $className;
 	}
 
-	public static function autoload($className)
+	public function __call($name,$args)
 	{
-		include(__DIR__.'/'.str_replace('\\','/',$className).'.php');
-	}
-
-	public function create($size,$color=null)
-	{
-		return $this->_imagine->create($size,$color);
-	}
-
-	public function open($path)
-	{
-		return $this->_imagine->open($path);
-	}
-
-	public function load($string)
-	{
-		return $this->_imagine->load($string);
-	}
-
-	public function read($resource)
-	{
-		return $this->_imagine->load($resource);
-	}
-
-	public function font($file,$size,$color)
-	{
-		return $this->_imagine->font($file,$size,$color);
+		return call_user_func_array(array($this->_imagine,$name),$args);
 	}
 }
