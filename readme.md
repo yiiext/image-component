@@ -1,7 +1,7 @@
 ImageComponent
 ==============
 
-Description will be here.
+Image processing with Imagine.
 
 Installation and configuration
 ------------------------------
@@ -29,8 +29,8 @@ Usage example
 -------------
 
 ```php
+<?php
 $image=Yii::app()->image->open('example.png');
 $thumbnail=$image->thumbnail(new Imagine\Image\Box(100,100));
 $thumbnail->save('example.thumb.png');
-<?php
 ```
