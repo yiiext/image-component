@@ -14,6 +14,9 @@
  */
 class ImageComponent extends CApplicationComponent
 {
+	/**
+	 * @var string driver. Defaults to 'Gd'.
+	 */
 	public $driver='Gd';
 	private $_imagine;
 
@@ -34,23 +37,23 @@ class ImageComponent extends CApplicationComponent
 		return $this->_imagine->create($size,$color);
 	}
 
-    public function open($path)
-    {
+	public function open($path)
+	{
 		return $this->_imagine->open($path);
-    }
+	}
 
-    public function load($string)
-    {
+	public function load($string)
+	{
 		return $this->_imagine->load($string);
-    }
+	}
 
-    public function read($resource)
-    {
+	public function read($resource)
+	{
 		return $this->_imagine->load($resource);
-    }
+	}
 
-    public function font($file,$size,$color)
-    {
+	public function font($file,$size,$color)
+	{
 		return $this->_imagine->font($file,$size,$color);
-    }
+	}
 }
