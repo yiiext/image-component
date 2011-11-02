@@ -6,7 +6,7 @@ Image processing with Imagine.
 Installation and configuration
 ------------------------------
 
-Copy behavior to `extensions/image` directory located inside your application and add
+Copy component to `extensions/image` directory located inside your application and add
 it to the application configuration the following way:
 
 ```php
