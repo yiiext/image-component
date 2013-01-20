@@ -5,9 +5,10 @@ Image processing with Imagine.
 
 Installation and configuration
 ------------------------------
+Install Imagine via composer.
 
-Copy component to `extensions/image` directory located inside your application and add
-it to the application configuration the following way:
+Copy component to `extensions/image-component` directory located inside your application and add it to the application
+configuration the following way:
 
 ```php
 <?php
@@ -16,7 +17,7 @@ return array(
 	'components'=>array(
 		...
 		'image'=>array(
-			'class'=>'ext.image.ImageComponent',
+			'class'=>'ext.image-component.ImageComponent',
 			'driver'=>'Gd',
 		),
 		...

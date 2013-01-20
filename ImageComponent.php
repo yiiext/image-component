@@ -9,7 +9,7 @@
 /**
  * Image processing with Imagine.
  *
- * @version 0.03
+ * @version 0.04
  * @package yiiext.image-component
  */
 class ImageComponent extends CApplicationComponent
@@ -18,30 +18,29 @@ class ImageComponent extends CApplicationComponent
 	 * @var string driver. Defaults to 'Gd'.
 	 */
 	public $driver='Gd';
-	private $_imagine;
+	private $_class;
 
 	/**
 	 * Initializes the application component.
 	 */
 	public function init()
 	{
-		Yii::setPathOfAlias('Imagine',__DIR__.'/Imagine');
-		$className="Imagine\\{$this->driver}\\Imagine";
-		$this->_imagine=new $className;
 		parent::init();
+		$class="Imagine\\{$this->driver}\\Imagine";
+		$this->_class=new $class;
 	}
 
 	/**
 	 * Calls the named method which is not a class method.
 	 * @param string $name the method name
-	 * @param array $parameters method parameters
+	 * @param array $params method parameters
 	 * @return mixed the method return value
 	 */
-	public function __call($name,$parameters)
+	public function __call($name,$params)
 	{
-		if(method_exists($this->_imagine,$name))
-			return call_user_func_array(array($this->_imagine,$name),$parameters);
+		if(method_exists($this->_class,$name))
+			return call_user_func_array(array($this->_class,$name),$params);
 
-		return parent::__call($name,$parameters);
+		return parent::__call($name,$params);
 	}
 }
