@@ -5,7 +5,7 @@ Image processing with Imagine.
 
 Installation and configuration
 ------------------------------
-Install Imagine via composer.
+Install [Imagine](https://github.com/avalanche123/Imagine) via composer.
 
 Copy component to `extensions/image-component` directory located inside your application and add it to the application
 configuration the following way:
